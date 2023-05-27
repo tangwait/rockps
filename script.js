@@ -1,10 +1,10 @@
 function getComputerChoice() {
-    let choices = ["Rock", "Paper", "Scissors"];
-    let randomIndex = Math.floor(Math.random() * choices.length);
-    return choices[randomIndex];
+    let computerChoice = ["rock", "paper", "scissors"];
+    let randomIndex = Math.floor(Math.random() * computerChoice.length);
+    return computerChoice[randomIndex];
 }
 
-let computerChoice = getComputerChoice();
+const computerChoice = getComputerChoice();
 
 const getUserChoice = userInput => {
     userInput = userInput.toLowerCase();
@@ -15,3 +15,32 @@ const getUserChoice = userInput => {
         console.log('Please type: rock, paper or scissors');
     }
 }
+
+const determineWinner = (userInput, computerChoice) => {
+    if (userInput === computerChoice) {
+        return "Computer picked " + userInput + " tie";
+    }
+
+    if (userInput === 'rock') {
+        if (computerChoice === 'paper')
+        return 'Computer picked ' + computerChoice + ' you lose!'; 
+    
+    }   
+    
+    if (userInput === 'paper') {
+        if (computerChoice === 'scissors')
+        return 'Computer picked ' + computerChoice + 'you lose!';
+
+    
+    }   
+    
+    if (userInput === 'scissors') {
+        if (computerChoice === 'rock')
+        return 'Computer picked ' + computerChoice + 'you lose!';
+    }
+
+    else {
+    return 'Computer picked ' + computerChoice + ' you win!';
+    }
+}
+
