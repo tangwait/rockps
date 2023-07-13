@@ -39,7 +39,8 @@ const game = () => {
         const buttons = document.querySelectorAll('button');
         let computerChoice = getComputerChoice();
         console.log('You played ' + userChoice);
-        console.log(determineWinner(userChoice, computerChoice));
+        let result = determineWinner(userChoice, computerChoice);
+        console.log(result);
     //}
     if (userScore>computerScore)
         return 'You win! ' + userScore + ' to ' + computerScore
@@ -49,16 +50,21 @@ const game = () => {
         return 'You lose! ' + userScore + ' to ' + computerScore
 };
 
-document.getElementById('rock.button').addEventListener(click, function() {
-    userChoice = 'rock';
-});
-document.getElementById('paper.button').addEventListener(click, function() {
-    userChoice = 'paper';
-});
-document.getElementById('scissors.button').addEventListener(click, function() {
-    userChoice = 'scissors';
-});
-
+let userChoice = '';
 let userScore = 0;
 let computerScore = 0;
-let userChoice = '';
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('rock-button').addEventListener('click', function() {
+        userChoice = 'rock';
+        console.log(game());
+    });
+    document.getElementById('paper-button').addEventListener('click', function() {
+        userChoice = 'paper';
+        console.log(game());
+    });
+    document.getElementById('scissors-button').addEventListener('click', function() {
+        userChoice = 'scissors';
+        console.log(game());
+    });
+});
