@@ -1,5 +1,6 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: black;
 }
 
 .header {
@@ -7,6 +8,8 @@ body {
     background-color: bisque;
     padding: 32px;
     justify-content: center;
+    margin: 16px;
+    border-radius: 15px;
 
 }
 .boxes {
@@ -19,6 +22,29 @@ body {
     padding-right: 128px;
 }
 
-.buttons {
+.button {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    text-decoration: none;
+}
 
+.intro {
+    background-color: bisque;
+    padding: 64px;
+    justify-content: center;
+    margin: 16px;
+    border-radius: 15px;
+}
+.title {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 16px;
+}
+
+.scores {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 15px;
 }
