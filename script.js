@@ -58,13 +58,24 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('rock-button').addEventListener('click', function() {
         userChoice = 'rock';
         console.log(game());
+        updateScores();
     });
     document.getElementById('paper-button').addEventListener('click', function() {
         userChoice = 'paper';
         console.log(game());
+        updateScores();
     });
     document.getElementById('scissors-button').addEventListener('click', function() {
         userChoice = 'scissors';
         console.log(game());
+        updateScores();
     });
 });
+
+const updateScores = () => {   
+const userScoreElement = document.getElementById('user-Score');
+const computerScoreElement = document.getElementById('computer-Score');
+
+userScoreElement.textContent = userScore;
+computerScoreElement.textContent = computerScore;
+}
