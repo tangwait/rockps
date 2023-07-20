@@ -6,31 +6,31 @@ function getComputerChoice() {
 
 const determineWinner = (userChoice, computerChoice) => {
     if (userChoice === computerChoice) {
-        return "Computer picked " + userChoice + " tie";
+        return updateTie();
     }
     if (userChoice === 'rock') {
         if (computerChoice === 'paper') {
             computerScore++;
-            return 'Computer picked ' + computerChoice + ' you lose!'
+            return updateComputerWinner();
         }
         userScore++;
-        return 'Computer picked ' + computerChoice + ' you win!';
+        return updateUserWinner();
     }    
     if (userChoice === 'paper') {
         if (computerChoice === 'scissors') {
             computerScore++;
-            return 'Computer picked ' + computerChoice + ' you lose!';
+            return updateComputerWinner();
         }   
         userScore++;
-        return 'Computer picked ' + computerChoice + ' you win!'
+        return updateUserWinner();
     }
     if (userChoice === 'scissors') {
         if (computerChoice === 'rock') {
             computerScore++;
-            return 'Computer picked ' + computerChoice + ' you lose!';
+            return updateComputerWinner();
         }
         userScore++;
-        return 'Computer picked ' + computerChoice + ' you win!'
+        return updateUserWinner();
     }
 }
     
@@ -88,8 +88,26 @@ const updateScores = () => {
 const updateDescription = () => {
     const userChoiceElement = document.getElementById('user-choice');
     const computerChoiceElement = document.getElementById('computer-choice');
+    const announcementElement = document.getElementById('announcement');
 
     userChoiceElement.textContent = 'You played ' + userChoice;
     computerChoiceElement.textContent = 'Computer played ' + computerChoice;
 };
 
+const updateUserWinner = () => {
+    const announcementElement = document.getElementById('announcement');
+
+    announcementElement.textContent = "You win!";
+}
+
+const updateComputerWinner = () => {
+    const announcementElement = document.getElementById('announcement');
+
+    announcementElement.textContent = 'Computer wins!';
+}
+
+const updateTie = () => {
+    const announcementElement = document.getElementById('announcement');
+
+    announcementElement.textContent = `You both picked ${userChoice}, tie!`;
+}
