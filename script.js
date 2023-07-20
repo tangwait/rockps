@@ -36,11 +36,12 @@ const determineWinner = (userChoice, computerChoice) => {
     
 const game = () => {
     // for (let i = 0; i < 5; i++) {
-        const buttons = document.querySelectorAll('button');
-        let computerChoice = getComputerChoice();
+        computerChoice = getComputerChoice();
         console.log('You played ' + userChoice);
         let result = determineWinner(userChoice, computerChoice);
         console.log(result);
+        updateDescription();
+        updateScores();
     //}
     if (userScore>computerScore)
         return 'You win! ' + userScore + ' to ' + computerScore
@@ -50,6 +51,7 @@ const game = () => {
         return 'You lose! ' + userScore + ' to ' + computerScore
 };
 
+let computerChoice = '';
 let userChoice = '';
 let userScore = 0;
 let computerScore = 0;
@@ -59,23 +61,35 @@ document.addEventListener('DOMContentLoaded', function() {
         userChoice = 'rock';
         console.log(game());
         updateScores();
+        updateDescription();
     });
     document.getElementById('paper-button').addEventListener('click', function() {
         userChoice = 'paper';
         console.log(game());
         updateScores();
+        updateDescription();
     });
     document.getElementById('scissors-button').addEventListener('click', function() {
         userChoice = 'scissors';
         console.log(game());
         updateScores();
+        updateDescription();
     });
 });
 
 const updateScores = () => {   
-const userScoreElement = document.getElementById('user-Score');
-const computerScoreElement = document.getElementById('computer-Score');
+    const userScoreElement = document.getElementById('user-Score');
+    const computerScoreElement = document.getElementById('computer-Score');
 
-userScoreElement.textContent = userScore;
-computerScoreElement.textContent = computerScore;
+    userScoreElement.textContent = userScore;
+    computerScoreElement.textContent = computerScore;
 }
+
+const updateDescription = () => {
+    const userChoiceElement = document.getElementById('user-choice');
+    const computerChoiceElement = document.getElementById('computer-choice');
+
+    userChoiceElement.textContent = 'You played ' + userChoice;
+    computerChoiceElement.textContent = 'Computer played ' + computerChoice;
+};
+
