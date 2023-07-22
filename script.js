@@ -56,24 +56,64 @@ let userChoice = '';
 let userScore = 0;
 let computerScore = 0;
 
+
 document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('reset-game').addEventListener('click', function() {
+        resetGame();
+    });
     document.getElementById('rock-button').addEventListener('click', function() {
         userChoice = 'rock';
-        console.log(game());
+        game();
         updateScores();
         updateDescription();
+        if (userScore === 5) {
+            userWin();
+        }
+        if (computerScore === 5) {
+            computerWin();
+        };
+        if (userScore === 6) {
+            resetGame();
+        };
+        if (computerScore === 6) {
+            resetGame();
+        };
     });
     document.getElementById('paper-button').addEventListener('click', function() {
         userChoice = 'paper';
-        console.log(game());
+        game();
         updateScores();
         updateDescription();
+        if (userScore === 5) {
+            userWin();
+        }
+        if (computerScore === 5) {
+            computerWin();
+        };
+        if (userScore === 6) {
+            resetGame();
+        };
+        if (computerScore === 6) {
+            resetGame();
+        };
     });
     document.getElementById('scissors-button').addEventListener('click', function() {
         userChoice = 'scissors';
-        console.log(game());
+        game();
         updateScores();
         updateDescription();
+        if (userScore === 5) {
+            userWin();
+        };
+        if (computerScore === 5) {
+            computerWin();
+        };
+        if (userScore === 6) {
+            resetGame();
+        };
+        if (computerScore === 6) {
+            resetGame();
+        };
     });
 });
 
@@ -88,7 +128,6 @@ const updateScores = () => {
 const updateDescription = () => {
     const userChoiceElement = document.getElementById('user-choice');
     const computerChoiceElement = document.getElementById('computer-choice');
-    const announcementElement = document.getElementById('announcement');
 
     userChoiceElement.textContent = 'You played ' + userChoice;
     computerChoiceElement.textContent = 'Computer played ' + computerChoice;
@@ -110,4 +149,39 @@ const updateTie = () => {
     const announcementElement = document.getElementById('announcement');
 
     announcementElement.textContent = `You both picked ${userChoice}, tie!`;
+}
+
+const userWin = () => {
+    const gameWinElement = document.getElementById('win-announcement');
+
+    gameWinElement.textContent = 'You win the game!';
+}
+
+const computerWin = () => {
+    const computerWinElement = document.getElementById('win-announcement');
+
+    computerWinElement.textContent = 'Computer wins the game!';
+}
+
+const resetGame = () => {
+    userScore = 0;
+    computerScore = 0;
+    userChoice = '';
+    computerChoice = '';
+
+    const userChoiceElement = document.getElementById('user-choice');
+    const computerChoiceElement = document. getElementById('computer-choice');
+    const gameWinElement = document.getElementById('win-announcement');
+    const computerWinElement = document.getElementById('win-announcement');
+    const announcementElement = document.getElementById('announcement');
+    const userScoreElement = document.getElementById('user-Score');
+    const computerScoreElement = document.getElementById('computer-Score');
+
+    gameWinElement.textContent = '';
+    computerWinElement.textContent = '';
+    announcementElement.textContent = '';
+    userChoiceElement.textContent = '';
+    computerChoiceElement.textContent = '';
+    userScoreElement.textContent = userScore;
+    computerScoreElement.textContent = computerScore;
 }
