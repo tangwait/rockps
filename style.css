@@ -1,11 +1,11 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: black;
+    background-color: #FFE5B4;
 }
 
 .header {
     display: flex;
-    background-color: bisque;
+    background-color: #98D8D8;
     padding: 32px;
     justify-content: center;
     margin: 16px;
@@ -14,26 +14,38 @@ body {
 }
 .boxes {
     display: flex;
-    padding: 64px;
     align-items: center;
     justify-content: space-between;
-    flex-direction: row;
-    padding-left: 128px;
-    padding-right: 128px;
+    padding: 64px 128px;
 }
 
-.button {
+button {
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid #D3C4FF;
     border-radius: 4px;
     padding: 10px;
     text-decoration: none;
 }
 
-.intro {
-    background-color: bisque;
-    padding: 64px;
+.buttons {
     justify-content: center;
+    background-color: #FFC0CB;
+    padding: 32px;
+    margin: 16px;
+    border-radius: 15px;
+}
+.resetButton {
+    display: flex;
+    margin-left: 20px;
+}
+#reset-game {
+    display: flex;
+    justify-content: center;
+}
+
+.intro {
+    background-color: #D3C4FF;
+    padding: 64px;
     margin: 16px;
     border-radius: 15px;
 }
@@ -41,10 +53,12 @@ body {
     display: flex;
     justify-content: center;
     padding-bottom: 16px;
+    padding-top: -16px;
 }
 
 .scores {
     display: flex;
     justify-content: space-between;
     border-radius: 15px;
+    padding-bottom: 20px;
 }
