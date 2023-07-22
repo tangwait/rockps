@@ -136,13 +136,13 @@ const updateDescription = () => {
 const updateUserWinner = () => {
     const announcementElement = document.getElementById('announcement');
 
-    announcementElement.textContent = "You win!";
+    announcementElement.textContent = "You win! ";
 }
 
 const updateComputerWinner = () => {
     const announcementElement = document.getElementById('announcement');
 
-    announcementElement.textContent = 'Computer wins!';
+    announcementElement.textContent = 'Computer wins! ';
 }
 
 const updateTie = () => {
